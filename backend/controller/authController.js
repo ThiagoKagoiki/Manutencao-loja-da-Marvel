@@ -58,23 +58,34 @@ export const login = async (req, res) => {
 
 // //Consultas
 
-// export const addConsulta = async (req, res) => {
-//   try {
-//     const { horario, medico, emailUser } = req.body;
+export const comprar = async (req, res) => {
+  try {
+    const { user_id, produtos, qtd, valorTotal } = req.body;
 
-//     const novaConsulta = await db.Consulta.create({ horario, medico, emailUser });
+    const user = await db.User.findByPk(user_id);
 
-//     res.status(201).json({
-//       mensagem: 'Consulta criada com sucesso',
-//       consulta: novaConsulta
-//     });
-//   } catch (err) {
-//     res.status(400).json({
-//       erro: 'Erro ao criar Consulta',
-//       detalhes: err.message
-//     });
-//   }
-// }
+    if (!user) {
+        return res.status(404).json({ error: 'Usuário não encontrado.' });
+    }
+
+    const pedido = await db.Pedido.create({
+        user_id,
+        produtos,
+        qtd,
+        valorTotal
+    })
+
+    res.status(201).json({
+      mensagem: 'Pedido criado com sucesso',
+      pedido
+    });
+  } catch (err) {
+    res.status(400).json({
+      erro: 'Erro ao criar Consulta',
+      detalhes: err.message
+    });
+  }
+}
 
 // export const deletarConsulta = async (req, res) => {
 //   try {

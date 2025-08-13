@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import db from './models/index.js';
 import cors from 'cors';
-import { login, registrar } from './controller/authController.js';
+import { comprar, login, registrar } from './controller/authController.js';
 
 dotenv.config();
 
@@ -20,6 +20,9 @@ app.use(express.json())
 
 app.post('/registrar', registrar)
 app.post('/login', login)
+
+
+app.post('/pedido', comprar)
 // Sincroniza os modelos com o banco e inicia o servidor
 db.sequelize.sync().then(() => {
   app.listen(3000, () => console.log("Servidor da clínica rodando na porta 3000"));
