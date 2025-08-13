@@ -1,0 +1,35 @@
+Atividade Prática
+Uma loja de Action Figures contratou uma empresa de desenvolvimento de software para
+criar um e-commerce para vendas online de seus produtos. A empresa que ficou
+responsável pelo desenvolvimento teve problemas internos e não conseguiu finalizar e
+implantar o site para o cliente. Então o cliente contratou a sua empresa para deixar o
+software mais legível e de acordo com as boas práticas de desenvolvimento e
+escalabilidade. A missão da sua empresa é:
+Em grupos de até 3 componentes, utilizando o Github como repositório para trabalho
+colaborativo, sua equipe deverá:
+Refatorar o site de e-commerce de Personagens da Marvel e da DC para implantação na
+internet, melhorando algumas implementações tais como:
+• Transforme os arrays que dizem respeito ao produto em uma única classe
+chamada produto, com seus atributos e métodos.
+• Altere as partes do código que se relacionam com os arrays, para a classe criada.
+• Modele e implemente o banco de dados em PostgreSQL, para substituir o que
+está armazenado em Local Storage.
+• Altere o cadastro de login para um cadastro de cliente, onde além de login e
+senha contenha os dados pessoais, como:
+o Nome;
+o Sobrenome;
+o CPF;
+o Telefone;
+o Endereço;
+o Forma de pagamento: pix, débito, crédito, boleto.
+• Crie telas para logins e carrinho de compras afim de substituir os alerts
+implementados atualmente.
+• Divida o arquivo JAVAscript único em arquivos separados (exports e import),
+obedecendo as boas práticas de desenvolvimento.
+• Faça o CSS para a tela de administração e tente implementar a obtenção da
+imagem por meio da caixa de diálogo ali inserida.
+• Implemente o login de administrador para acesso a página de administração /
+manutenção.
+• Implemente, na página de administração, a possibilidade de exclusão de
+produtos.
+Bom trabalho
