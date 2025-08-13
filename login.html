@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #002d4a, #004d73);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    /* Logo / Título */
+    .login-container img {
+      width: 80px;
+      margin-bottom: 1rem;
+      animation: zoomIn 0.6s ease-in-out;
+    }
+
+    .login-container h1 {
+      margin-bottom: 1.5rem;
+      color: #002d4a;
+      font-size: 1.8rem;
+    }
+
+    /* Inputs */
+    .input-group {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.9rem;
+      padding-left: 40px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #e63946;
+      box-shadow: 0 0 8px rgba(230, 57, 70, 0.4);
+    }
+
+    /* Ícones nos inputs */
+    .input-group span {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: #888;
+    }
+
+    /* Botão */
+    .login-container button {
+      width: 100%;
+      padding: 0.9rem;
+      margin-top: 1rem;
+      background: linear-gradient(135deg, #e63946, #c02632);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-container button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(230, 57, 70, 0.5);
+    }
+
+    /* Link */
+    .login-container a {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #002d4a;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animações */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <!-- Logo (substitua pela sua imagem) -->
+    <img src="imagens/super-heroi.png" alt="Logo">
+    <h1>Bem-vindo</h1>
+    
+    <form>
+      <div class="input-group">
+        <span>👤</span>
+        <input type="text" placeholder="Usuário" required>
+      </div>
+      <div class="input-group">
+        <span>🔒</span>
+        <input type="password" placeholder="Senha" required>
+      </div>
+      <button type="submit">Entrar</button>
+      <a href="#">Esqueceu a senha?</a>
+    </form>
+  </div>
+</body>
+</html>
