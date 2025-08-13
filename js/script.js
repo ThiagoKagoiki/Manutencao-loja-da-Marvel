@@ -18,33 +18,29 @@ class Produto {
         totalCompra = preco * qtd
         totalCompra = JSON.parse(localStorage.getItem('totCompArr'));
     }
-
-    armazenarLocalStorage(){
-        if (localStorage.prodArr) {
-            this.produto = JSON.parse(localStorage.getItem('prodArr'));
-        }
-        if (localStorage.codArr) {
-            this.cod = JSON.parse(localStorage.getItem('codArr'));
-        }
-        if (localStorage.precoArr) {
-            this.preco = JSON.parse(localStorage.getItem('precoArr'));
-        }
-        if (localStorage.linkArr) {
-            this.link = JSON.parse(localStorage.getItem('linkArr'));
-        }
-        if (localStorage.descArr) {
-            this.descricao = JSON.parse(localStorage.getItem('descArr'));
-        }
-        if (localStorage.qtdArr) {
-            this.qtd = JSON.parse(localStorage.getItem('qtdArr'));
-        }
-        if (localStorage.totCompArr) {
-            this.totalCompra = JSON.parse(localStorage.getItem('totCompArr'));
-        }
-    }
-
 }
 
+if (localStorage.prodArr) {
+    this.produto = JSON.parse(localStorage.getItem('prodArr'));
+}
+if (localStorage.codArr) {
+    this.cod = JSON.parse(localStorage.getItem('codArr'));
+}
+if (localStorage.precoArr) {
+    this.preco = JSON.parse(localStorage.getItem('precoArr'));
+}
+if (localStorage.linkArr) {
+    this.link = JSON.parse(localStorage.getItem('linkArr'));
+}
+if (localStorage.descArr) {
+    this.descricao = JSON.parse(localStorage.getItem('descArr'));
+}
+if (localStorage.qtdArr) {
+    this.qtd = JSON.parse(localStorage.getItem('qtdArr'));
+}
+if (localStorage.totCompArr) {
+    this.totalCompra = JSON.parse(localStorage.getItem('totCompArr'));
+}
 
 
 
