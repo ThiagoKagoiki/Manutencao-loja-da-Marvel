@@ -282,19 +282,82 @@
 // Mostra os produtos na página
 function montaHTML() {
     const container = document.querySelector('.container');
-    const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+    const produtos = JSON.parse(localStorage.getItem('produtos') || '[]');
 
-    container.innerHTML = produtos.map(p => `
-        <div class="card">
-            <img src="${p.imagem || 'imagens/default.jpg'}" alt="${p.nome}">
-            <h3>${p.nome}</h3>
-            <p class="price">R$ ${p.preco.toFixed(2).replace('.', ',')}</p>
-            <p class="descricao">${p.descricao}</p>
-            <button class="btn" onclick="adicionarCarrinho(${p.id})">Adicionar ao Carrinho</button>
-            <a href="${p.link_amazon}" target="_blank" class="btn">Comprar na Amazon</a>
+    container.innerHTML = produtos.map((p, i) => `
+      <article class="card">
+        <div class="product-image" onclick="abreLink(${i})"
+          style="background-image: url('${p.imagem || 'imagens/default.jpg'}'); height: 220px; background-size: cover; background-position: center;">
         </div>
+        <h3>${p.nome}</h3>
+        <p class="price">R$ ${p.preco.toFixed(2).replace('.', ',')}</p>
+        <p class="descricao">${p.descricao}</p>
+        <button class="btn" onclick="adicionarCarrinho('${p.codigo}')">Adicionar ao Carrinho</button>
+        <a href="${p.link_amazon}" target="_blank" class="btn">Comprar na Amazon</a>
+      </article>
     `).join('');
 }
+
+for (let i in produto) {
+    // Cria article/card
+    const article = document.createElement('article');
+    article.classList.add('card');
+
+    // Cria div da imagem
+    const div = document.createElement('div');
+    div.classList.add('product-image');
+    div.id = 'img-' + i;
+    div.onclick = () => abreLink(i);
+    div.style.backgroundImage = `url(imagens/img${i}.jpg)`; // imagem dinâmica
+    article.appendChild(div);
+
+    // Nome do produto
+    const h3 = document.createElement('h3');
+    h3.id = 'nome' + i;
+    h3.textContent = produto[i];
+    article.appendChild(h3);
+
+    // Quantidade (oculta)
+    const pQtd = document.createElement('p');
+    pQtd.textContent = 'Qtd: ';
+    pQtd.hidden = true;
+
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.value = 1;
+    input.min = 1;
+    input.max = 10;
+    input.hidden = true;
+    input.id = 'qtd-' + i;
+
+    pQtd.appendChild(input);
+    article.appendChild(pQtd);
+
+    // Preço
+    const pPreco = document.createElement('p');
+    pPreco.textContent = 'R$ ';
+    const span = document.createElement('span');
+    span.id = cod[i];
+    span.classList.add('bold');
+    span.textContent = preco[i].toFixed(2).replace('.', ',');
+    pPreco.appendChild(span);
+    article.appendChild(pPreco);
+
+    // Link Comprar
+    const aLink = document.createElement('a');
+    aLink.classList.add('btn');
+    aLink.href = 'http://www.amazon.com.br/' + link[i];
+    aLink.target = '_blank';
+    aLink.textContent = 'Comprar';
+    aLink.onclick = () => compra('qtd-' + i, cod[i], i);
+
+    article.appendChild(aLink);
+
+    // Adiciona o card na seção
+    section.appendChild(article);
+}
+
+
 
 // Adiciona ao carrinho
 function adicionarCarrinho(prodId) {
