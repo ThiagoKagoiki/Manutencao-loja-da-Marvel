@@ -1,3 +1,5 @@
+
+
 let login = '', senha, qtdCont = 0, valor = 0, totalGeral = 0, cesta, loginAut
 let article, div, div2, h3, p1, input, p2, span, aLink, main, section, footer, h2, p3, span2, aLink2
 let usr = []
@@ -20,6 +22,7 @@ class Produto {
     }
 }
 
+
 if (localStorage.prodArr) {
     this.produto = JSON.parse(localStorage.getItem('prodArr'));
 }
@@ -41,8 +44,6 @@ if (localStorage.qtdArr) {
 if (localStorage.totCompArr) {
     this.totalCompra = JSON.parse(localStorage.getItem('totCompArr'));
 }
-
-
 
 function getDados(){
     if(localStorage.qtdArr){
