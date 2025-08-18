@@ -1,205 +1,96 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Helvetica;
+/* Container de produtos */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 140px 20px 20px;
+    background-color: #f2f2f2;
 }
 
-#hcont{
-    display: flex;
-    flex-direction: row;
-}
-
-/*Cabeçalho*/
-header{
-    background-color: #070347;
-    position: fixed;
-    color: #fff;
-    padding: 5px;
-    text-align: center;
-    border-bottom: 3px solid red;
-    width: 100%;
-    height: 100px;
-}
-
-h1{
-    color: #ff0000;
-    text-shadow: 1px 1px #eeeeee;
-    padding-top: 15px;
-    padding-left: 130px;
-    font-size: 30px;
-}
-
-/*Grid de Heróis*/
-
-.container{
-    background-color: #eee;
-    min-height: calc(100vh - 40px); /* Leva em consideração a altura do cabeçalho e do rodapé */
-    padding: 100px;
-    padding-bottom: 20px; /* Leva em consideração a altura do rodapé */
-    overflow: auto; /* Permite a rolagem do conteúdo caso exceda o tamanho da tela */
-}
-
-.products-container{
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.car{
-    display: block;
-    width: 5%;
-    color: #fff;
-    text-align: center;
-    text-transform: lowercase;
-    text-decoration: none;
-    background-color: transparent;
-    margin-left: 350px;
-}
-
-#log{
-    display: block;
-    width: 25%;
-    /* text-align: center; */
-    color: #ffffff;
-    padding: 0px;
-    border: none;
-    font-size: 20px;
-    text-transform: capitalize;
-    text-decoration: underline;
-    background-color: transparent;
-    transition: 0.5s;
-    margin-left: 0%;
-    margin-top: 40px;
-}
-
-#clog{
-    display: block;
-    width: 5%;
-    /* text-align: center; */
-    color: #ffffff;
-    padding: 0px;
-    border: none;
-    font-size: 10px;
-    text-transform: capitalize;
-    text-decoration: underline;
-    background-color: transparent;
-    transition: 0.5s;
-    margin-left: 0%;
-    margin-top: 0px;
-}
-
+/* Card do produto */
 .card {
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    padding: 16px;
-    text-align: center;
+    padding: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
+/* Imagem do produto */
 .product-image {
-    width: 100%;
-    height: 180px;
+    width: 220px;
+    height: 220px;
     background-size: cover;
     background-position: center;
-    border-radius: 12px;
-    cursor: pointer;
-}
-
-.card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #222;
-}
-
-.card p {
-    font-size: 0.95rem;
-    margin: 4px 0;
-}
-
-.card .bold {
-    font-weight: 700;
-    color: #e63946;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #e63946;
-    color: #fff;
-    padding: 8px 14px;
     border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.2s, transform 0.2s;
+    margin-bottom: 12px;
 }
 
-.btn:hover {
-    background-color: #c02632;
-    transform: translateY(-2px);
-}
-
-
-/*footer*/
-#rodape{
-    background-color: #070347;
-    color: #fff;
-    border-top: 3px solid red;
+/* Nome do produto */
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
     text-align: center;
-    /* padding: 20px; */
-    /* Novos */
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    height: 68px;
-}
-/* ******************************************************* */
-
-#tituloProduto{
-    padding-top: 120px;
-    color: #070347;
 }
 
-#home{
-    color: #eee;
+/* Preço */
+.price {
+    color: #e63946;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
-#imgProd{
-    margin-left: 100px;
-    width: 370px;
-    height: 400px;
+/* Descrição */
+.descricao {
+    font-size: 14px;
+    text-align: center;
     margin-bottom: 10px;
-    background-position: center;
-    background-size: cover;
-    border: 5px solid #070347;
-    border-radius: 20px;
+    color: #555;
 }
 
-#central{
+/* Input quantidade */
+.card label {
+    font-size: 14px;
+    margin-bottom: 10px;
     display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-#descProduto{
-    width: 1000px;
-    border: solid 5px;
-    border-radius: 30px;
-    padding: 10px;
-    margin-left: 10px;
-    overflow: auto;
-    font-size: 22px;
-    height: 400px;
+/* Botão adicionar ao carrinho */
+.card .btn {
+    background: linear-gradient(135deg, #e63946, #ff4b5c);
+    color: #fff;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-#divProd{
-    margin: 0;
-    padding: 0;
-    margin-left: 100px;
+.card .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(230, 57, 70, 0.5);
 }
-/* ******************************************************* */
+
+/* Responsividade */
+@media screen and (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 120px 10px 10px;
+    }
+
+    .product-image {
+        width: 180px;
+        height: 180px;
+    }
+}
