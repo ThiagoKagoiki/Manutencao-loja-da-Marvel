@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <script src="js/login.js"></script>
+  <script src="js/login.js" defer></script>
   <style>
     /* Reset */
     * {
@@ -130,18 +130,19 @@
     <img src="imagens/super-heroi.png" alt="Logo">
     <h1>Bem-vindo</h1>
     
-    <form action="index.html" method="get">
+    <form id="form-login">
       <div class="input-group">
         <span>👤</span>
-        <input type="text" placeholder="Usuário" required>
+        <input type="text" name="login" placeholder="Usuário" required>
       </div>
       <div class="input-group">
         <span>🔒</span>
-        <input type="password" placeholder="Senha" required>
+        <input type="password" name="senha" placeholder="Senha" required>
       </div>
       <button type="submit">Entrar</button>
       <a href="cadastro.html">Criar conta</a>
     </form>
+
     
   </div>
 </body>
